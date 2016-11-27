@@ -57,8 +57,20 @@ pub extern "C" fn main() {
     gpio::set_direction(gpio::PinPort::PortF(gpio::Pin::Pin4),
                         gpio::PinMode::Output);
     //gpio::enable_ccp(gpio::PinPort::PortF(gpio::Pin::Pin4));
-    gpio::set(gpio::PinPort::PortF(gpio::Pin::Pin4), gpio::Level::High);
-    loop {}
+    loop {
+        gpio::set(gpio::PinPort::PortF(gpio::Pin::Pin4), gpio::Level::High);
+        let mut delay = 200_000;
+        while delay > 0 {
+            delay -= 1;
+        }
+        gpio::set(gpio::PinPort::PortF(gpio::Pin::Pin4), gpio::Level::Low);
+        let mut delay = 100_000;
+        while delay > 0 {
+            delay -= 1;
+        }
+    }
+    
+    
 
 
     //let mut uart = uart::Uart::new(uart::UartId::Uart0, 115200, uart::NewlineMode::SwapLFtoCRLF);
