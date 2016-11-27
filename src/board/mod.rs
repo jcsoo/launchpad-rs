@@ -71,12 +71,13 @@ pub const BUTTON_TWO: gpio::PinPort = gpio::PinPort::PortF(gpio::Pin::Pin4);
 /// and buttons. Should be pretty much the first call you make in `main()`.
 /// Doesn't init the UART - that's separate.
 pub fn init() {
-    fpu::init();
-    pll::init(pll::ClockSpeed::Speed66MHz);
-    systick::init();
+    fpu::init();             
+    //pll::init(pll::ClockSpeed::Speed66MHz);
+    //systick::init();
     gpio::init();
-    enable_buttons();
-    enable_leds();
+    //enable_buttons();
+    //enable_leds();
+    
 }
 
 /// Turn an LED on
